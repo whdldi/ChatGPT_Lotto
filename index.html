@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT 로또추첨기</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="all_wrap">
+        <div class="all_center_wrap">
+            <p class="big_title">ChatGPT 로또추첨기</p>
+
+            <div class="group_inner_gap_wrap">
+                <div class="group_wrap clearfix">
+                    <p class="group_title">게임 A</p>
+                    <button class="regenerate" data-group="groupA"><i class="fas fa-sync-alt"></i>
+                    </button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupA"></ul>
+                        <button class="copy" data-group="groupA"><i class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+
+                </div>
+                <div class="group_wrap">
+                    <p class="group_title">게임 B</p>
+                    <button class="regenerate" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupB"></ul>
+                        <button class="copy" data-group="groupB"><i class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">게임 C</p>
+                    <button class="regenerate" data-group="groupC"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupC"></ul>
+                        <button class="copy" data-group="groupC"><i class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">게임 D</p>
+                    <button class="regenerate" data-group="groupD"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupD"></ul>
+                        <button class="copy" data-group="groupD"><i class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">게임 E</p>
+                    <button class="regenerate" data-group="groupE"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupE"></ul>
+                        <button class="copy" data-group="groupE"><i class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <!-- buttons -->
+                <div class="bottom_btn_wrap">
+                    <button class="regenerate-all" id="regenerate-all"><i class="fas fa-sync-alt"></i> 다시뽑기</button>
+                    <button class="copy-all" id="copy-all"><i class="fas fa-solid fa-clipboard"></i> </button>
+                </div>
+
+            </div>
+            <!-- group_inner_gap_wrap end -->
+
+        </div>
+        <!-- all_center_wrap end -->
+
+    </div>
+    <footer>
+        <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a>
+        <p class="footer_text">ChatGPT & Hesper 가 만든 로또추첨기</p>
+        <p class="footer_text ver">Ver 1.0 <span> 23-04-09</span></p>
+    </footer>
+    <!-- all_wrap end -->
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function generateRandomNumbers(count) {
+            let numbers = [];
+
+            for (let i = 1; i <= 45; i++) {
+                numbers.push(i);
+            }
+
+            let shuffled = numbers.sort(function () {
+                return 0.5 - Math.random();
+            });
+
+            return shuffled.slice(0, count);
+        }
+
+        function generateNumbers(group) {
+            let list = $("#" + group);
+
+            list.empty();
+
+            let numbers = generateRandomNumbers(6);
+
+            $.each(numbers, function (index, value) {
+                list.append("<li>" + value + "</li>");
+            });
+        }
+
+        $(document).ready(function () {
+            $(".group").each(function () {
+                generateNumbers($(this).attr("id"));
+            });
+
+            $(".regenerate").click(function () {
+                let group = $(this).data("group");
+                generateNumbers(group);
+            });
+
+            $("#regenerate-all").click(function () {
+                $(".group").each(function () {
+                    let group = $(this).attr("id");
+                    generateNumbers(group);
+                });
+            });
+
+
+            $(".copy").click(function () {
+                let group = $(this).data("group");
+                let numbers = $("#" + group + " li").map(function () {
+                    return $(this).text();
+                }).get().join(", ");
+                navigator.clipboard.writeText(numbers);
+                alert(numbers + "\n" + "복사완료! 🤑💸");
+            });
+        });
+        $("#copy-all").click(function () {
+            let allNumbers = "";
+            $(".group").each(function () {
+                let groupName = $(this).parents("div").siblings(".group_title").text();
+                let numbers = $(this).find("li").map(function () {
+                    return $(this).text();
+                }).get().join(", ");
+                allNumbers += groupName + ": " + numbers + "\n";
+            });
+            navigator.clipboard.writeText(allNumbers);
+            alert(allNumbers + "\n" + "전체번호 복사완료! 🤑💰");
+        });
+    </script>
+
+    <!-- next_update -->
+    <!-- 
+        1. ripple effects 
+        2. 게임별 X 표시 (전체복사 눌렀을때 X는 안떠야함)
+        3.....
+    -->
+
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+@charset "utf-8";
+
+
+/* css */
+/* css */
+/* css */
+/* css */
+/* 전체 중앙정렬 */
+body {
+    background-color: #f7f7f7;
+}
+
+.all_wrap {
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+}
+
+.all_center_wrap {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    background-color: #F1F4FB;
+    box-shadow: 0px 0px 7px #02010a67;
+}
+
+/* 추첨기제목 */
+.big_title {
+    background-color: #7260C5;
+    background: rgb(114, 96, 197);
+    background: linear-gradient(90deg, rgb(95 73 196) 0%, rgb(91 72 212) 35%, rgb(121 67 206) 100%);
+    /* box-shadow: 0px 0px 4px #1d1481;  */
+    box-shadow: 0px 0px 7px #02010a67;
+    padding: 15px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.7rem;
+    color: #fff;
+}
+
+
+/* 추첨기 그룹 */
+/* 추첨기 그룹 */
+/* 추첨기 그룹 */
+/* .group_wrap{
+    background-color: #28a745;
+}
+ */
+.group_wrap:first-child {
+    margin-top: 10px;
+}
+
+.group_wrap {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* 그룹 숫자 */
+.group {
+    display: inline-block;
+}
+
+.group_inner_gap_wrap {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* 그룹이름 */
+.group_title {
+    font-size: 1.4rem;
+    /* margin-top: 20px; */
+    color: #999;
+    font-weight: 600;
+    margin-right: 6px;
+    display: inline-block;
+}
+
+/* 한 줄씩 새로만들기 버튼 */
+
+.regenerate {
+    margin-top: 10px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    padding: 6px 7px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #988EFF;
+    color: #fff;
+    font-size: 1.1rem;
+    /* box-shadow: 0px 0px 3px #02010a6b; */
+    transition: background-color 0.3s ease;
+}
+
+.regenerate:hover {
+    background-color: #7b70f6;
+}
+
+/* X버튼 */
+.disable_x {
+    float: right;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    /* width: 12px; */
+    padding: 4px 7px;
+    /* height: 10px; */
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    background-color: #b6b6b6;
+    color: #fff;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: background-color 0.3s ease;
+}
+
+.disable_x:hover {
+    background-color: #333;
+}
+
+/* 게임번호 한 줄 */
+/* 게임번호 한 줄 */
+/* 게임번호 한 줄 */
+
+.group_wrap ul li {
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0px 0px 3px #02010a18;
+    font-size: 1.4rem;
+    /* padding: 8px 9px; */
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    font-weight: 600;
+    color: #666;
+    line-height: 25px;
+
+}
+
+.group_one_line {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* 한 줄 카피버튼 */
+.copy {
+    float: right;
+    margin-top: 6px;
+    display: inline-block;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    padding: 7px 20px;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #8f4ae2;
+    color: #fff;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: background-color 0.3s ease;
+}
+
+
+.copy:hover {
+    background-color: #7428d1;
+}
+
+
+
+
+/* 전체다시 뽑기/복사 wrap */
+/* 전체다시 뽑기/복사 wrap */
+/* 전체다시 뽑기/복사 wrap */
+.bottom_btn_wrap {
+    justify-content: space-between;
+    margin: 0 auto;
+    margin: 30px 0 20px 0;
+    width: 100%;
+    display: flex;
+    align-content: space-between;
+}
+
+.regenerate-all button {
+    display: inline-block;
+}
+
+.regenerate-all {
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #776de6;
+    color: #fff;
+    margin-right: 10px;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: background-color 0.3s ease;
+}
+
+.regenerate-all:hover {
+    background-color: #5a4de9;
+}
+
+
+.copy-all {
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 20%;
+    font-size: 2.4rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #7428d1;
+    color: #fff;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: background-color 0.3s ease;
+}
+
+.copy-all:hover {
+    background-color: #610dc8;
+}
+
+
+/* footer */
+footer{
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+}
+
+.footer_text{
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.footer_link{
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    width: 166px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #666;
+    color: #fff;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+.footer_link:hover{
+    background-color: #333;
+}
+
+
+.footer_text.ver{
+    font-size: 1rem;
+    margin-top: 7px;
+    color: #bebebe;
+    
+}
+.footer_text.ver span{
+    color: #bebebe;
+    font-size: 1rem;
+    
+}
