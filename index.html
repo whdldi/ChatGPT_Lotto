@@ -14,6 +14,36 @@
 </head>
 
 <body>
+    <!-- 팝업 -->
+    <!-- 팝업 -->
+    <!-- 팝업 -->
+    <div class="popup_modal">
+        <div class="size_change">
+            <div class="popup_modalBox">
+                <div class="popup_modalBox_inner">
+                    <div class="how_to_text_wrap" id="how_to_text_1">
+                        <div class="content">
+                            <!-- <div class="medal">
+                                <img src="/asset/win_popup.png" alt="medal">
+                            </div> -->
+                            <div class="fancy_popup_text">
+                                <h1>복사완료😎</h1>
+                                <p>다음엔 더 강한 상대도 이겨보세요!</p>
+                            </div>
+                        </div>
+                        <button class="next_about" id="next_about3">1등당첨 ㄱㄱ</button>
+                    </div>
+                </div>
+                <!-- popup_modalBox_inner end -->
+                <!-- <button class="close_about" id="close"><i class="fas fa-times"></i></button> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 팝업 -->
+    <!-- 팝업 -->
+    <!-- 팝업 -->
+
     <div class="all_wrap">
         <div class="all_center_wrap">
             <p class="big_title">ChatGPT 로또추첨기</p>
@@ -96,7 +126,9 @@
     <footer>
         <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a>
         <p class="footer_text">ChatGPT & Hesper 가 만든 로또추첨기</p>
-        <p class="footer_text ver">Ver 1.0 <span> 23-04-09</span></p>
+        <p class="footer_text ver">Ver 1.3 <span> 23-04-23</span></p>
+        <p class="footer_text ver_etc">Ver 1.3 - 챗GPT색적용, 알럿대신 popup사용, 복사 제대로 되는지 확인필요 <span> 23-04-23</span></p>
+        <p class="footer_text ver_etc">Ver 1.0 - 보라테마, 알럿 모바일에서는 안나오는 상태로 git에 등록 <span> 23-04-09</span></p>
     </footer>
     <!-- all_wrap end -->
 
@@ -147,17 +179,30 @@
                     generateNumbers(group);
                 });
             });
-
-
-            $(".copy").click(function () {
-                let group = $(this).data("group");
-                let numbers = $("#" + group + " li").map(function () {
-                    return $(this).text();
-                }).get().join(", ");
-                navigator.clipboard.writeText(numbers);
-                alert(numbers + "\n" + "복사완료! 🤑💸");
-            });
         });
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        복사/전체복사 버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        $(".copy").click(function () {
+            let group = $(this).data("group");
+            let numbers = $("#" + group + " li").map(function () {
+                return $(this).text();
+            }).get().join(", ");
+            navigator.clipboard.writeText(numbers);
+            // alert(numbers + "\n" + "복사완료! 🤑💸");<이거 살리면 알럿으로나옴
+
+            $('.fancy_popup_text p').text(numbers);
+            //copy를 누르면 위의 알럿이 아니라 알럿으로 나타나는 text들이
+            //fancy_popup_text 안의 p에 들어가 나타나야 한다
+            /* 복사한 numbers를  fancy_popup_text p에 담겠다 < 가 되야함*/
+
+        });
+
         $("#copy-all").click(function () {
             let allNumbers = "";
             $(".group").each(function () {
@@ -165,18 +210,69 @@
                 let numbers = $(this).find("li").map(function () {
                     return $(this).text();
                 }).get().join(", ");
-                allNumbers += groupName + ": " + numbers + "\n";
+                allNumbers += groupName + " : " + numbers + "\n";
             });
             navigator.clipboard.writeText(allNumbers);
-            alert(allNumbers + "\n" + "전체번호 복사완료! 🤑💰");
+            // alert(allNumbers + "\n" + "전체번호 복사완료! 🤑💰");
+
+            /* 아래꺼 하는중 전체복사 눌렀을때 나타내는거 줄바꿈 어캐하지? */
+            // $('.fancy_popup_text p').text(numbers + "\n");
+
+            $('.fancy_popup_text p').text(allNumbers);
+            //copy를 누르면 위의 알럿이 아니라 알럿으로 나타나는 text들이
+            //fancy_popup_text 안의 p에 들어가 나타나야 한다
+            /* 복사한 numbers를  fancy_popup_text p에 담겠다 < 가 되야함*/
+
+        });
+
+
+
+
+
+
+
+        /* 팝업모달 */
+        /* 팝업모달 */
+        /* 팝업모달 */
+
+
+        // about 모달
+
+        $(function () {
+            /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
+            $(".copy , .copy-all").click(function () {
+                $(".popup_modal").fadeIn('1');
+            });
+
+            $(".popup_modal").click(function (e) {
+                if (e.target.className == "popup_modal") {
+                    $(".popup_modal").fadeOut('1');
+                }
+                if (e.target.className == "size_change") {
+                    $(".popup_modal").fadeOut('1');
+                }
+            });
+
+        });
+
+
+        // 팝업닫는 글자
+        $(function () {
+            $("#next_about3").click(function () {
+                $(".popup_modal").fadeOut('1');
+                // $(".how_to_text_wrap").fadeOut('1');
+            });
         });
     </script>
 
-<!--
+    <!--
     [next_update]
     - PC 버전 
     - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함)
     - ripple effects 
+    - alert이 아닌 popup
+    - Icon logo Redesign
+    -
 -->
 
 </body>
