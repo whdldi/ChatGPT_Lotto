@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-
-/* css */
-/* css */
-/* css */
-/* css */
 /* 전체 중앙정렬 */
 body {
     background-color: #f7f7f7;
@@ -22,16 +17,15 @@ body {
     width: 100%;
     margin: 0 auto;
     display: inline-block;
-    background-color: #F1F4FB;
+    background-color: #f8fbf8;
     box-shadow: 0px 0px 7px #02010a67;
 }
 
 /* 추첨기제목 */
 .big_title {
-    background-color: #7260C5;
-    background: rgb(114, 96, 197);
-    background: linear-gradient(90deg, rgb(95 73 196) 0%, rgb(91 72 212) 35%, rgb(121 67 206) 100%);
     /* box-shadow: 0px 0px 4px #1d1481;  */
+    background: rgb(126, 186, 170);
+    background: linear-gradient(90deg, rgb(85, 168, 146) 0%, rgba(59, 164, 137, 1) 44%, rgb(108, 186, 166) 100%);
     box-shadow: 0px 0px 7px #02010a67;
     padding: 15px;
     font-weight: 600;
@@ -89,16 +83,35 @@ body {
     padding: 6px 7px;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #988EFF;
+    background-color: #6AAB9A;
     color: #fff;
     font-size: 1.1rem;
     /* box-shadow: 0px 0px 3px #02010a6b; */
-    transition: background-color 0.3s ease;
+
 }
 
+
+/* 터치했을때 효과 */
+
+
 .regenerate:hover {
-    background-color: #7b70f6;
+    background-color: #3d7062;
+    animation: hover-fade-in-out_rege 1s;
 }
+
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+    @keyframes hover-fade-in-out_rege {
+        0% {
+            background-color: #3d7062;
+        }
+
+        100% {
+            background-color: #6AAB9A;
+        }
+    }
+}
+
 
 /* X버튼 */
 .disable_x {
@@ -117,7 +130,7 @@ body {
     background-color: #b6b6b6;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .disable_x:hover {
@@ -160,20 +173,41 @@ body {
     border-radius: 9px;
     border: none;
     cursor: pointer;
-    padding: 7px 20px;
+    padding: 7px 15px;
     font-size: 1.6rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #8f4ae2;
+    background-color: #666;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 
 .copy:hover {
-    background-color: #7428d1;
+    background-color: #222;
+    animation: hover-fade-in-out_copy 1s;
 }
+
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+
+    @keyframes hover-fade-in-out_copy {
+        0% {
+            background-color: #222;
+        }
+
+        100% {
+            background-color: #666;
+        }
+    }
+
+}
+
+
+
+
+
 
 
 
@@ -204,16 +238,32 @@ body {
     font-size: 1.7rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #776de6;
+    background-color: #6AAB9A;
     color: #fff;
     margin-right: 10px;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
+
 .regenerate-all:hover {
-    background-color: #5a4de9;
+    background-color: #3d7062;
+    animation: hover-fade-in-out_rege_all 1s;
 }
+
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+    @keyframes hover-fade-in-out_rege_all {
+        0% {
+            background-color: #3d7062;
+        }
+
+        100% {
+            background-color: #6AAB9A;
+        }
+    }
+}
+
 
 
 .copy-all {
@@ -226,32 +276,70 @@ body {
     font-size: 2.4rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #7428d1;
+    background-color: #444;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
+
 .copy-all:hover {
-    background-color: #610dc8;
+    background-color: #222;
+    animation: hover-fade-in-out_copy_all 1s;
 }
+
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+
+    @keyframes hover-fade-in-out_copy_all {
+        0% {
+            background-color: #222;
+        }
+
+        100% {
+            background-color: #444;
+        }
+    }
+
+}
+
+/* 이게맞음 */
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+
+    @keyframes hover-fade-in-out_copy_all {
+        0% {
+            background-color: #3d7062;
+        }
+
+        100% {
+            background-color: #6AAB9A;
+        }
+
+    }
+
+}
+
+
+
 
 
 /* footer */
-footer{
+footer {
     margin: 0 auto;
     width: calc(100% - 20px);
     margin-top: 20px;
+    padding-bottom: 50px;
 }
 
-.footer_text{
+.footer_text {
     font-weight: 400;
     text-align: center;
     font-size: 1.1rem;
     color: #777;
 }
 
-.footer_link{
+.footer_link {
     font-size: 1.1rem;
     color: #333;
     font-weight: 600;
@@ -269,22 +357,251 @@ footer{
     background-color: #666;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
     margin-bottom: 10px;
 }
-.footer_link:hover{
+
+.footer_link:hover {
     background-color: #333;
 }
 
 
-.footer_text.ver{
+.footer_text.ver {
     font-size: 1rem;
     margin-top: 7px;
     color: #bebebe;
-    
+
 }
-.footer_text.ver span{
+
+.footer_text.ver span {
     color: #bebebe;
     font-size: 1rem;
-    
+    margin-left: 5px;
+
 }
+
+.footer_text.ver_etc {
+    font-size: .5rem;
+    margin-top: 7px;
+    color: #f7f7f7;
+    /* color: #333; */
+}
+
+
+
+/* 팝업 */
+/* 팝업 */
+/* 팝업 */
+
+/* 뒷배경 */
+.popup_modal {
+    z-index: 500;
+    width: 100%;
+    display: none;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.popup_modal .size_change {
+    animation: opa;
+    /* transition: 0.5s; */
+}
+
+@keyframes opa {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* how to play모달 */
+.popup_modalBox {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 65%;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 3000;
+    text-align: left;
+    box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 53%);
+    background-color: #fff;
+
+}
+
+
+
+.how_to_text_wrap {
+    display: none;
+}
+
+#how_to_text_1 {
+    display: block;
+}
+
+.popup_modalBox_inner {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    /* padding: 20px 0; */
+    padding-bottom: 60px;
+}
+
+
+
+
+
+
+
+
+
+/* 
+
+
+    @media screen and (min-width:520px) {
+
+        .popup_modal .popup_modalBox {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 440px;
+            border-radius: 10px 10px 10px 10px;
+            z-index: 3000;
+            box-shadow: rgb(0 0 0 / 22%) 0px 0px 2px 0px;
+        }
+
+        .popup_modal .size_change {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+    } */
+
+
+/* 닫기 버튼 옮기기 */
+/* 0307 팝업수정 */
+.popup_modal .close_about {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    line-height: 20px;
+    right: -10px;
+    top: -13px;
+    background: transparent;
+    border: 0;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    z-index: 20000;
+    font-weight: 900;
+    background: #393939;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    box-shadow: rgb(0 0 0 / 22%) 0px 0px 2px 0px;
+    border-radius: 50%;
+}
+
+/* 다음버튼으로 */
+.popup_modal .next_about {
+    position: absolute;
+    /* border-radius: 0 0 10px 10px; */
+    border-radius: 10px;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
+    border: 0;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    z-index: 20000;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-weight: 500;
+    background-color: #6AAB9A;
+}
+
+
+.next_about:hover {
+    background-color: #3d7062;
+    animation: hover-fade-in-out_next_about 1s;
+}
+
+/* 폰 사이즈 일때만 누르면 반짝 */
+@media screen and (min-width:1200px) {
+    @keyframes hover-fade-in-out_next_about {
+        0% {
+            background-color: #3d7062;
+        }
+
+        100% {
+            background-color: #6AAB9A;
+        }
+    }
+}
+
+
+
+
+/* ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ */
+
+
+
+.content {
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: #999; */
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.content .fancy_popup_text h1 {
+    font-weight: 900;
+    font-size: 2rem;
+    color: #333;
+    /* text-shadow: 0px 0px 3px #333; */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.content .fancy_popup_text p {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    line-height: 28px;
+    white-space: pre;
+    margin-bottom: 10px;
+}
+
+
+/* 팝업안에 이미지 넣을 시 */
+/* .content .medal img {
+    display: block;
+    margin: auto;
+    max-width: 180px;
+    filter: drop-shadow(0 0 4px rgba(251, 255, 0, 0.61));
+} */
+/* animation: animate 1s ease-in-out-in-out; */
+
+/* @keyframes animate {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+} */
