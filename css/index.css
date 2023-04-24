@@ -86,17 +86,10 @@ body {
     background-color: #6AAB9A;
     color: #fff;
     font-size: 1.1rem;
-    transition: background-color 0.3s ease-in-out;
+    transition: 0.1s linear;
 }
-
-
-/* 터치했을때 효과 */
-.regenerate:hover {
-    background-color: #3d7062;
-}
-
 .regenerate:active {
-    background-color: #6AAB9A;
+    background-color: rgb(61, 112, 98);
 }
 
 
@@ -117,7 +110,7 @@ body {
     background-color: #b6b6b6;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease-in-out;
+    transition: 0.1s linear;
 }
 
 .disable_x:hover {
@@ -164,19 +157,14 @@ body {
     font-size: 1.6rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #666;
+    background-color: #888;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease-in-out;
-}
-
-
-.copy:hover {
-    background-color: #222;
+    transition: 0.1s linear;
 }
 
 .copy:active {
-    background-color: #666;
+    background-color: #000;
 }
 
 
@@ -213,24 +201,17 @@ body {
     font-size: 1.7rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #6AAB9A;
+    background-color: #129d79;
     color: #fff;
     margin-right: 10px;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: 0.1s ease-in-out;
-}
-
-/* TEST */
-.regenerate-all:hover {
-    /* background-color: #3d7062; */
-
+    transition: 0.1s linear;
 }
 
 .regenerate-all:active {
-    /* background-color: #6AAB9A; */
-    /* background-color: #3d7062; */
-    background-color: #3d7062;
+    background-color: #006349;
 }
+
 
 
 .copy-all {
@@ -243,18 +224,15 @@ body {
     font-size: 2.4rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #444;
+    background-color: #555;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.copy-all:hover {
-    background-color: #000;
+    transition: 0.1s linear;
 }
 
 .copy-all:active {
-    background-color: #444;
+    background-color: #000;
+    
 }
 
 
@@ -292,7 +270,7 @@ footer {
     background-color: #666;
     color: #fff;
     box-shadow: 0px 0px 3px #02010a6b;
-    transition: background-color 0.3s ease-in-out;
+    transition: 0.1s linear;
     margin-bottom: 10px;
 }
 
@@ -432,16 +410,12 @@ footer {
     width: calc(100% - 20px);
     padding: 10px;
     font-weight: 500;
-    background-color: #6AAB9A;
-    transition: background-color 0.3s ease-in-out;
+    background-color: #129d79;
+    transition: 0.1s linear;
 }
 
-
-.next_about:hover {
-    background-color: #3d7062;
-}
 .next_about:active {
-    background-color: #6AAB9A;
+    background-color: #006349;
 }
 
 
