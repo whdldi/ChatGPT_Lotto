@@ -86,30 +86,17 @@ body {
     background-color: #6AAB9A;
     color: #fff;
     font-size: 1.1rem;
-    /* box-shadow: 0px 0px 3px #02010a6b; */
-
+    transition: background-color 0.3s ease-in-out;
 }
 
 
 /* 터치했을때 효과 */
-
-
 .regenerate:hover {
     background-color: #3d7062;
-    animation: hover-fade-in-out_rege 1s;
 }
 
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-    @keyframes hover-fade-in-out_rege {
-        0% {
-            background-color: #3d7062;
-        }
-
-        100% {
-            background-color: #6AAB9A;
-        }
-    }
+.regenerate:active {
+    background-color: #6AAB9A;
 }
 
 
@@ -186,22 +173,10 @@ body {
 
 .copy:hover {
     background-color: #222;
-    animation: hover-fade-in-out_copy 1s;
 }
 
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-
-    @keyframes hover-fade-in-out_copy {
-        0% {
-            background-color: #222;
-        }
-
-        100% {
-            background-color: #666;
-        }
-    }
-
+.copy:active {
+    background-color: #666;
 }
 
 
@@ -248,22 +223,12 @@ body {
 
 .regenerate-all:hover {
     background-color: #3d7062;
-    animation: hover-fade-in-out_rege_all 1s;
+
 }
 
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-    @keyframes hover-fade-in-out_rege_all {
-        0% {
-            background-color: #3d7062;
-        }
-
-        100% {
-            background-color: #6AAB9A;
-        }
-    }
+.regenerate-all:active {
+    background-color: #6AAB9A;
 }
-
 
 
 .copy-all {
@@ -282,45 +247,13 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-
 .copy-all:hover {
-    background-color: #222;
-    animation: hover-fade-in-out_copy_all 1s;
+    background-color: #000;
 }
 
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-
-    @keyframes hover-fade-in-out_copy_all {
-        0% {
-            background-color: #222;
-        }
-
-        100% {
-            background-color: #444;
-        }
-    }
-
+.copy-all:active {
+    background-color: #444;
 }
-
-/* 이게맞음 */
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-
-    @keyframes hover-fade-in-out_copy_all {
-        0% {
-            background-color: #3d7062;
-        }
-
-        100% {
-            background-color: #6AAB9A;
-        }
-
-    }
-
-}
-
-
 
 
 
@@ -450,7 +383,6 @@ footer {
 .popup_modalBox_inner {
     width: calc(100% - 40px);
     margin: 0 auto;
-    /* padding: 20px 0; */
     padding-bottom: 60px;
 }
 
@@ -459,33 +391,6 @@ footer {
 
 
 
-
-
-
-/* 
-
-
-    @media screen and (min-width:520px) {
-
-        .popup_modal .popup_modalBox {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 0%);
-            width: 440px;
-            border-radius: 10px 10px 10px 10px;
-            z-index: 3000;
-            box-shadow: rgb(0 0 0 / 22%) 0px 0px 2px 0px;
-        }
-
-        .popup_modal .size_change {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%);
-        }
-
-    } */
 
 
 /* 닫기 버튼 옮기기 */
@@ -512,7 +417,6 @@ footer {
 /* 다음버튼으로 */
 .popup_modal .next_about {
     position: absolute;
-    /* border-radius: 0 0 10px 10px; */
     border-radius: 10px;
     bottom: 0px;
     left: 50%;
@@ -527,34 +431,25 @@ footer {
     padding: 10px;
     font-weight: 500;
     background-color: #6AAB9A;
+    transition: background-color 0.3s ease-in-out;
 }
 
 
 .next_about:hover {
     background-color: #3d7062;
-    animation: hover-fade-in-out_next_about 1s;
 }
-
-/* 폰 사이즈 일때만 누르면 반짝 */
-@media screen and (min-width:1200px) {
-    @keyframes hover-fade-in-out_next_about {
-        0% {
-            background-color: #3d7062;
-        }
-
-        100% {
-            background-color: #6AAB9A;
-        }
-    }
+.next_about:active {
+    background-color: #6AAB9A;
 }
 
 
 
 
-/* ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ */
 
 
-
+/* --------------- 팝업 --------------- */
+/* --------------- 팝업 --------------- */
+/* --------------- 팝업 --------------- */
 .content {
     width: 100%;
     /* height: 100%; */
