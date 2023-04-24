@@ -220,14 +220,15 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-
+/* TEST */
 .regenerate-all:hover {
     background-color: #3d7062;
 
 }
 
 .regenerate-all:active {
-    background-color: #6AAB9A;
+    /* background-color: #6AAB9A; */
+    background-color: #3d7062;
 }
 
 
