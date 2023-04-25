@@ -1,0 +1,40 @@
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        복사/전체복사 버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        $(".copy").click(function () {
+            let group = $(this).data("group");
+            let numbers = $("#" + group + " li").map(function () {
+                return $(this).text();
+            }).get().join(", ");
+            navigator.clipboard.writeText(numbers);
+            // alert(numbers + "\n" + "복사완료! 🤑💸");<이거 살리면 알럿으로나옴
+            $('.fancy_popup_text p').text(numbers);
+            //copy를 누르면 위의 알럿이 아니라 알럿으로 나타나는 text들이
+            //fancy_popup_text 안의 p에 들어가 나타나야 한다
+            /* 복사한 numbers를  fancy_popup_text p에 담겠다 < 가 되야함*/
+
+        });
+
+        $("#copy-all").click(function () {
+            let allNumbers = "";
+            $(".group").each(function () {
+                let groupName = $(this).parents("div").siblings(".group_title").text();
+                let numbers = $(this).find("li").map(function () {
+                    return $(this).text();
+                }).get().join(", ");
+                allNumbers += groupName + " : " + numbers + "\n";
+            });
+            navigator.clipboard.writeText(allNumbers);
+            // alert(allNumbers + "\n" + "전체번호 복사완료! 🤑💰");
+            /* 아래꺼 하는중 전체복사 눌렀을때 나타내는거 줄바꿈 어캐하지? */
+            // $('.fancy_popup_text p').text(numbers + "\n");
+            $('.fancy_popup_text p').text(allNumbers);
+            //copy를 누르면 위의 알럿이 아니라 알럿으로 나타나는 text들이
+            //fancy_popup_text 안의 p에 들어가 나타나야 한다
+            /* 복사한 numbers를  fancy_popup_text p에 담겠다 < 가 되야함*/
+
+        });
+
+        
+
