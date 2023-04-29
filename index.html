@@ -124,7 +124,7 @@
 
     </div>
     <footer>
-        <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a>
+        <!--         <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a> -->
         <p class="footer_text">ChatGPT & Hesper 가 만든 로또추첨기</p>
         <p class="footer_text ver">Ver 1.3 <span> 23-04-23</span></p>
         <p class="footer_text ver_etc">Ver 1.3 - 챗GPT색적용, 알럿대신 popup사용, 복사 제대로 되는지 확인필요 <span> 23-04-23</span></p>
@@ -137,6 +137,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        번호뽑기 버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
         function generateRandomNumbers(count) {
             let numbers = [];
 
@@ -148,7 +152,12 @@
                 return 0.5 - Math.random();
             });
 
-            return shuffled.slice(0, count);
+            /* sort 로 오름차순으로 정렬 후, sorted로 반환 */
+            let sorted = shuffled.slice(0, count).sort(function (a, b) {
+                return a - b;
+            });
+
+            return sorted;
         }
 
         function generateNumbers(group) {
@@ -180,43 +189,6 @@
                 });
             });
         });
-
-
-
-
-
-        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-        //     복사/전체복사 버튼 - 웹뷰 앱에선 복사하는
-        //     navigator.clipboard.writeText 동작이
-        //     안된다해서 주석처리, 다른걸로 구현
-        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-        //      \ (•◡•) /
-
-        // $(".copy").click(function () {
-        //     let group = $(this).data("group");
-        //     let numbers = $("#" + group + " li").map(function () {
-        //         return $(this).text();
-        //     }).get().join(", ");
-        //     navigator.clipboard.writeText(numbers);
-        //     // alert(numbers + "\n" + "복사완료! 🤑💸");<이거 살리면 알럿으로나옴
-        //     $('.fancy_popup_text p').text(numbers);
-        //    });
-
-        // $("#copy-all").click(function () {
-        //     let allNumbers = "";
-        //     $(".group").each(function () {
-        //         let groupName = $(this).parents("div").siblings(".group_title").text();
-        //         let numbers = $(this).find("li").map(function () {
-        //             return $(this).text();
-        //         }).get().join(", ");
-        //         allNumbers += groupName + " : " + numbers + "\n";
-        //     });
-        //     navigator.clipboard.writeText(allNumbers);
-        //     // alert(allNumbers + "\n" + "전체번호 복사완료! 🤑💰");
-        //     $('.fancy_popup_text p').text(allNumbers);
-        // });
-
-
 
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
@@ -308,20 +280,24 @@
     <!--
     [next_update]
     - ripple effects (📌)
-    - 뽑아진 6자리 수를 오름차순으로 정렬해서 보이기 (📌)
     - Icon logo Redesign(📌)
     - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함)
     - PC 버전 
     - 로딩화면
     - 내 카톡으로 보내기
+    - 복사됏음 팝업뜨고 뒤로가기 누르면 히스토리 백 되게?  해서 아무튼. 팝업닫게끔.
+
+    [🗯]
+    -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
+    (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
+
+    [🔪]
+    - alert이 아닌 popup으로 복사한 숫자 보여주기
+    - 뽑아진 6자리 수를 오름차순으로 정렬해서 보이기
 
 
-- 복사됏음 팝업뜨고 뒤로가기 누르면 히스토리 백 되게?  해서 ->아무튼. 팝업닫게 하고싶음.
--진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
-(흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
-
-
-    - (🔪) alert이 아닌 popup (🔪)
+    [Check ✅]
+    - Hesper's instar.. padding이상.
 -->
 
 </body>
