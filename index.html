@@ -17,7 +17,7 @@
     <!-- 팝업 -->
     <!-- 팝업 -->
     <!-- 팝업 -->
-    <div class="popup_modal" >
+    <div class="popup_modal">
         <div class="size_change">
             <div class="popup_modalBox">
                 <div class="popup_modalBox_inner">
@@ -32,7 +32,7 @@
                                 <div class="empty_num" style="display:none;">
                                     <img src="asset/잔상.png">
                                 </div>
-                                
+
                             </div>
                         </div>
                         <button class="next_about" id="next_about3">1등당첨 ㄱㄱ</button>
@@ -237,7 +237,6 @@
             $('.fancy_popup_text p').text(numbers);
 
         });
-
         $("#copy-all").click(function () {
             let allNumbers = "";
             $(".group").each(function () {
@@ -268,13 +267,14 @@
 
             if (allNumbers.trim() === "") {
                 $('.fancy_popup_text p').text("아아,그건 제 잔상입니다만?");
-                $('.fancy_popup_text h1').text("뭘 복사하라는거죠?");
-                $('.next_about').text("호에에;");
+                $('.fancy_popup_text h1').text($('.fancy_popup_text h1').text());
+                $('.next_about').text($('.next_about').text());
                 $('.empty_num').show();
-                
             } else {
                 $('.fancy_popup_text p').text(allNumbers);
                 $('.empty_num').hide();
+                $('.fancy_popup_text h1').text($('.fancy_popup_text h1').text());
+                $('.next_about').text($('.next_about').text());
             }
         });
 
@@ -284,8 +284,6 @@
         /* 팝업모달 */
         /* 팝업모달 */
         /* 팝업모달 */
-
-        // about 모달
 
         $(function () {
             /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
