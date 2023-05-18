@@ -17,7 +17,7 @@
     <!-- 팝업 -->
     <!-- 팝업 -->
     <!-- 팝업 -->
-    <div class="popup_modal">
+    <div class="popup_modal" >
         <div class="size_change">
             <div class="popup_modalBox">
                 <div class="popup_modalBox_inner">
@@ -28,7 +28,11 @@
                             </div> -->
                             <div class="fancy_popup_text">
                                 <h1>복사완료😎</h1>
-                                <p>다음엔 더 강한 상대도 이겨보세요!</p>
+                                <p>복사번호 들어갈 곳</p>
+                                <div class="empty_num" style="display:none;">
+                                    <img src="/asset/잔상.png">
+                                </div>
+                                
                             </div>
                         </div>
                         <button class="next_about" id="next_about3">1등당첨 ㄱㄱ</button>
@@ -53,9 +57,12 @@
                     <p class="group_title">게임 A</p>
                     <button class="regenerate" data-group="groupA"><i class="fas fa-sync-alt"></i>
                     </button>
-                    <!-- <button class="disable_x">
+                    <!-- group_wrap 에 disabled가 있을시,
+                        disable_x-->
+                    <button class="disable_x">
                         <i class="fas fa-close"></i>
-                    </button> -->
+                        <i class="fas fa-plus"></i>
+                    </button>
                     <div class="group_one_line">
                         <ul class="group" id="groupA"></ul>
                         <button class="copy" data-group="groupA"><i class="fas fa-solid fa-clipboard"></i></button>
@@ -65,9 +72,10 @@
                 <div class="group_wrap">
                     <p class="group_title">게임 B</p>
                     <button class="regenerate" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
-                    <!-- <button class="disable_x">
+                    <button class="disable_x">
                         <i class="fas fa-close"></i>
-                    </button> -->
+                        <i class="fas fa-plus"></i>
+                    </button>
                     <div class="group_one_line">
                         <ul class="group" id="groupB"></ul>
                         <button class="copy" data-group="groupB"><i class="fas fa-solid fa-clipboard"></i></button>
@@ -77,9 +85,10 @@
                 <div class="group_wrap">
                     <p class="group_title">게임 C</p>
                     <button class="regenerate" data-group="groupC"><i class="fas fa-sync-alt"></i></button>
-                    <!-- <button class="disable_x">
+                    <button class="disable_x">
                         <i class="fas fa-close"></i>
-                    </button> -->
+                        <i class="fas fa-plus"></i>
+                    </button>
                     <div class="group_one_line">
                         <ul class="group" id="groupC"></ul>
                         <button class="copy" data-group="groupC"><i class="fas fa-solid fa-clipboard"></i></button>
@@ -89,9 +98,10 @@
                 <div class="group_wrap">
                     <p class="group_title">게임 D</p>
                     <button class="regenerate" data-group="groupD"><i class="fas fa-sync-alt"></i></button>
-                    <!-- <button class="disable_x">
+                    <button class="disable_x">
                         <i class="fas fa-close"></i>
-                    </button> -->
+                        <i class="fas fa-plus"></i>
+                    </button>
                     <div class="group_one_line">
                         <ul class="group" id="groupD"></ul>
                         <button class="copy" data-group="groupD"><i class="fas fa-solid fa-clipboard"></i></button>
@@ -101,9 +111,10 @@
                 <div class="group_wrap">
                     <p class="group_title">게임 E</p>
                     <button class="regenerate" data-group="groupE"><i class="fas fa-sync-alt"></i></button>
-                    <!-- <button class="disable_x">
+                    <button class="disable_x">
                         <i class="fas fa-close"></i>
-                    </button> -->
+                        <i class="fas fa-plus"></i>
+                    </button>
                     <div class="group_one_line">
                         <ul class="group" id="groupE"></ul>
                         <button class="copy" data-group="groupE"><i class="fas fa-solid fa-clipboard"></i></button>
@@ -126,7 +137,8 @@
     <footer>
         <!--         <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a> -->
         <p class="footer_text">ChatGPT & Hesper 가 만든 로또추첨기</p>
-        <p class="footer_text ver">Ver 1.3 <span> 23-04-23</span></p>
+        <p class="footer_text ver">Ver 1.4 <span> 23-05-18</span></p>
+        <p class="footer_text ver_etc">Ver 1.4 - 플레이 스토어 등록완료, 게임 취소 X버튼 업데이트<span> 23-05-18</span></p>
         <p class="footer_text ver_etc">Ver 1.3 - 챗GPT색적용, 알럿대신 popup사용, 복사 제대로 되는지 확인필요 <span> 23-04-23</span></p>
         <p class="footer_text ver_etc">Ver 1.0 - 보라테마, 알럿 모바일에서는 안나오는 상태로 git에 등록 <span> 23-04-09</span></p>
     </footer>
@@ -176,14 +188,23 @@
             $(".group").each(function () {
                 generateNumbers($(this).attr("id"));
             });
-
+            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
             $(".regenerate").click(function () {
+                var groupWrap = $(this).closest(".group_wrap");
+                if (groupWrap.hasClass("disabled")) {
+                    return; // .disabled 클래스가 있는 경우 동작 중지
+                }
                 let group = $(this).data("group");
                 generateNumbers(group);
             });
-
+            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
             $("#regenerate-all").click(function () {
                 $(".group").each(function () {
+                    var groupWrap = $(this).closest(".group_wrap");
+                    if (groupWrap.hasClass("disabled")) {
+                        return; // .disabled 클래스가 있는 경우 동작 중지
+                    }
+
                     let group = $(this).attr("id");
                     generateNumbers(group);
                 });
@@ -214,11 +235,18 @@
             document.body.removeChild(tempTextArea);
 
             $('.fancy_popup_text p').text(numbers);
+
         });
 
         $("#copy-all").click(function () {
             let allNumbers = "";
             $(".group").each(function () {
+                let groupWrap = $(this).closest(".group_wrap");
+
+                if (groupWrap.hasClass("disabled")) {
+                    return; // .disabled 클래스가 있는 경우 건너뜀
+                }
+
                 let groupName = $(this).parents("div").siblings(".group_title").text();
                 let numbers = $(this).find("li").map(function () {
                     return $(this).text();
@@ -238,23 +266,39 @@
             // 텍스트 영역을 제거합니다.
             document.body.removeChild(tempTextArea);
 
-            $('.fancy_popup_text p').text(allNumbers);
+            if (allNumbers.trim() === "") {
+                $('.fancy_popup_text p').text("아아,그건 제 잔상입니다만?");
+                $('.fancy_popup_text h1').text("뭘 복사하라는거죠?");
+                $('.next_about').text("호에에;");
+                $('.empty_num').show();
+                
+            } else {
+                $('.fancy_popup_text p').text(allNumbers);
+                $('.empty_num').hide();
+            }
         });
 
 
 
-        /* 팝업모달 */
-        /* 팝업모달 */
-        /* 팝업모달 */
 
+        /* 팝업모달 */
+        /* 팝업모달 */
+        /* 팝업모달 */
 
         // about 모달
 
         $(function () {
             /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
-            $(".copy , .copy-all").click(function () {
+            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
+            $(".copy, .copy-all").click(function () {
+                var groupWrap = $(this).closest(".group_wrap");
+                if (groupWrap.hasClass("disabled")) {
+                    return; // .disabled 클래스가 있는 경우 동작 중지
+                }
+
                 $(".popup_modal").fadeIn('1');
             });
+
 
             $(".popup_modal").click(function (e) {
                 if (e.target.className == "popup_modal") {
@@ -275,15 +319,61 @@
                 // $(".how_to_text_wrap").fadeOut('1');
             });
         });
+
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       0518 X 버튼(게임 비활성화) 기능
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".disable_x").click(function () {
+                var groupWrap = $(this).closest(".group_wrap");
+
+                if (groupWrap.hasClass("disabled")) {
+                    // 비활성화 상태인 경우
+                    groupWrap.removeClass("disabled");
+                    $(this).find('.fas.fa-plus').hide();
+                    $(this).find('.fas.fa-close').show();
+                } else {
+                    // 활성화 상태인 경우
+                    groupWrap.addClass("disabled");
+                    $(this).find('.fas.fa-close').hide();
+                    $(this).find('.fas.fa-plus').show();
+                }
+            });
+        });
+
+
+        /* 복사할 코드 아무것도 없을때
+        엇? 복사할 코드가 없는데여!;☹🙄표기해주기 */
     </script>
     <!--
+        
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+// 문제 : 다 없애고 다시 하나 살렸을때 석원쌤 또 나옴...
+        
     [Next_update]
-    - Icon logo Redesign(📌)
+    - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함) (📌)
     - ripple effects (📌)
     - 로딩화면
-    - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함)
     - 복사됏음 팝업뜨고 뒤로가기 누르면 히스토리 백 되게?  해서 아무튼. 팝업닫게끔.
     - 나중에 BK테마로 바꾸기 (bg #2C363F)
+    
 
     - 내 카톡으로 보내기
     - PC 버전 
@@ -292,11 +382,17 @@
     -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
     (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
 
+
+
+    [App_update]
+    -앱 아이콘 그라데이션 준거로 수정
+
+
     [🔪]
     - alert이 아닌 popup으로 복사한 숫자 보여주기
     - 뽑아진 6자리 수를 오름차순으로 정렬해서 보이기
     - Hesper's ins.... padding이상. (수정후, none시켜놓음)
-
+    - Icon logo Redesign(🔪)
 
     [Check ✅]
    
