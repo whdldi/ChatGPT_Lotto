@@ -5,10 +5,12 @@ body {
     background-color: #f7f7f7;
 }
 
+
 .all_wrap {
     margin: 0 auto;
     width: calc(100% - 20px);
     margin-top: 20px;
+
 }
 
 .all_center_wrap {
@@ -107,15 +109,12 @@ body {
     border-radius: 9px;
     border: none;
     cursor: pointer;
-    /* width: 12px; */
     padding: 5px 8px;
-    /* height: 10px; */
     font-weight: bold;
     font-size: 1.1rem;
     text-transform: uppercase;
     background-color: #b6b6b6;
     color: #fff;
-    /* box-shadow: 0px 0px 3px #02010a6b; */
     transition: 0.1s linear;
 }
 
@@ -207,9 +206,11 @@ body {
 
 .copy:active {
     background-color: #000;
+    transition: 0.1s linear;
 }
 .group_wrap.disabled .copy:active{
     background-color: #888;
+    transition: 0.1s linear;
 }
 
 
@@ -276,6 +277,7 @@ body {
 
 .copy-all:active {
     background-color: #000;
+    transition: 0.1s linear;
 
 }
 
@@ -543,3 +545,33 @@ footer {
     }
 
 }
+
+
+
+
+/*  PC.ver  */
+/* 1126 pc일때 모바일 화면으로 보도록 수정 */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .all_wrap {
+      width: 365px;
+    }
+
+
+    .popup_modalBox {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 40%;
+        border-radius: 10px 10px 10px 10px;
+        z-index: 3000;
+        text-align: left;
+        box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 53%);
+        background-color: #fff;
+    }
+
+
+  }
+  
