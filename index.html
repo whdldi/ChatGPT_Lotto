@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT 로또추첨기</title>
+    <title>로또챗또</title>
     <link href="css/reset.css?cssVersion=22" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -50,13 +50,17 @@
 
     <div class="all_wrap">
         <div class="all_center_wrap">
-            <p class="big_title">ChatGPT 로또추첨기</p>
+            <p class="big_title">로또번호 추첨</p>
 
             <div class="group_inner_gap_wrap">
                 <div class="group_wrap clearfix">
                     <p class="group_title">게임 A</p>
+                    <!-- 읽어주기 -->
+                 
+
                     <button class="regenerate" data-group="groupA"><i class="fas fa-sync-alt"></i>
                     </button>
+                    <button class="voice_read">번호읽기</button>
                     <!-- group_wrap 에 disabled가 있을시,
                         disable_x-->
                     <button class="disable_x">
@@ -72,6 +76,7 @@
                 <div class="group_wrap">
                     <p class="group_title">게임 B</p>
                     <button class="regenerate" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
+                    <button class="voice_read">번호읽기</button>
                     <button class="disable_x">
                         <i class="fas fa-close"></i>
                         <i class="fas fa-plus"></i>
@@ -137,7 +142,8 @@
     <footer>
         <!--         <a class="footer_link" href="https://www.instagram.com/dingga_dm/" target="blank">🎨 Hesper's Instagram 🎸</a> -->
         <p class="footer_text">ChatGPT & Hesper 가 만든 로또추첨기</p>
-        <p class="footer_text ver">Ver 1.5<span> 23-06-17</span></p>
+        <p class="footer_text ver">Ver 1.7<span> 23-11-26</span></p>
+        <p class="footer_text ver_etc">Ver 1.6 - 스토어에 chat gpt 등재로 앱내려가서 2개월만에 다시올림, PC에서 모바일로보이게 사이즈 수정<span> 23-11-26</span></p>
         <p class="footer_text ver_etc">Ver 1.5 - 앱 아이콘, 이름, AEO 수정<span> 23-06-17</span></p>
         <p class="footer_text ver_etc">Ver 1.42 - 게임 취소 X버튼 : 모두 비활성화 후, 재활성화시 문구표기 오류수정<span> 23-06-15</span></p>
         <p class="footer_text ver_etc">Ver 1.4 - 플레이 스토어 등록완료, 게임 취소 X버튼 업데이트<span> 23-05-18</span></p>
@@ -362,7 +368,59 @@
                 }
             });
         });
+
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       1126 로또번호 읽기버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        //로또 번호 읽기와 가까이에 있는 로또 번호 결과값 한 줄을 읽어줌
+        $(document).ready(function () {
+        $('.voice_read').on('click', function () {
+            var $listItems = $(this).siblings('.group_one_line').find('li');
+
+            $listItems.each(function () {
+            var currentNumber = $(this).text();
+            speakNumber(currentNumber);
+            });
+        });
+
+        function speakNumber(number) {
+            // 여기에서 실제 음성을 읽어주는 코드를 구현할 수 있습니다.
+            // 예를 들어, 브라우저의 SpeechSynthesis API를 사용할 수 있습니다.
+            // 아래는 간단한 예제입니다.
+            var synth = window.speechSynthesis;
+            var utterance = new SpeechSynthesisUtterance(number);
+            
+            // 읽는 속도
+            utterance.rate = 0.3;
+            // 볼륨
+            utterance.volume = 5;
+            // 톤
+            utterance.pitch = 3;
+
+            synth.speak(utterance);
+        }
+        });
+
+
+
+
+
+
+
+
     </script>
+
+<!-- .group 이라는 ul 안에 있는 li가 숫자인데 이를 순서대로 읽어주게 하는
+.voice_read 라는 버튼을 만들어줘 제이쿼리로
+-->
+
+
     <!--
         
     [Next_update]
@@ -372,17 +430,17 @@
     - 나중에 BK테마로 바꾸기 (bg #2C363F)
 
     - 내 카톡으로 보내기
-    - PC 버전 
-
+    
     [🟡]
+    -소리로 읽어주기
     -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
     (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
-
-
-
     
-
-
+    
+    
+    
+    
+    
     [🔪]
     - alert이 아닌 popup으로 복사한 숫자 보여주기
     - 뽑아진 6자리 수를 오름차순으로 정렬해서 보이기
@@ -390,6 +448,7 @@
     - Icon logo Redesign(🔪)
     - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함) (📌)
     - 게임 취소 X버튼 : 모두 비활성화 후, 재활성화시 제목,확인버튼 오류수정
+    - PC 버전 
     [App_update🔪]
     -앱 아이콘 그라데이션 준거로 수정
     -앱 이름 수정
