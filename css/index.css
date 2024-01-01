@@ -2,9 +2,18 @@
 
 /* 전체 중앙정렬 */
 body {
-    background-color: #f7f7f7;
+    background-color: #fff;
 }
 
+/* 옆쪽 빨간 로또 테두리선 */
+.sideline {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 10px;
+    background-color: #F69CB4;
+}
 
 .all_wrap {
     margin: 0 auto;
@@ -19,21 +28,21 @@ body {
     width: 100%;
     margin: 0 auto;
     display: inline-block;
-    background-color: #f8fbf8;
-    box-shadow: 0px 0px 7px #02010a67;
+    background-color: #fff;
+    /* box-shadow: 0px 0px 7px #02010a67; */
 }
 
 /* 추첨기제목 */
 .big_title {
-    /* box-shadow: 0px 0px 4px #1d1481;  */
-    background: rgb(126, 186, 170);
-    background: linear-gradient(90deg, rgb(85, 168, 146) 0%, rgba(59, 164, 137, 1) 44%, rgb(108, 186, 166) 100%);
-    box-shadow: 0px 0px 7px #02010a67;
-    padding: 15px;
-    font-weight: 600;
+    line-height: 60px;
+    font-weight: 800;
     text-align: center;
-    font-size: 1.7rem;
-    color: #fff;
+    font-size: 3rem;
+    color: #FFCFE5;
+    height: 60px;
+    border-bottom: 5px dotted #b2b2b22d;
+
+
 }
 
 
@@ -56,7 +65,9 @@ body {
 
 /* 그룹 숫자 */
 .group {
-    display: inline-block;
+    width: 100%;
+    display: flex;
+    margin-left: 10px;
 }
 
 .group_inner_gap_wrap {
@@ -67,11 +78,9 @@ body {
 
 /* 그룹이름 */
 .group_title {
-    font-size: 1.4rem;
-    /* margin-top: 20px; */
-    color: #999;
+    font-size: 1.3rem;
+    color: #FF80B4;
     font-weight: 600;
-    margin-right: 6px;
     display: inline-block;
 }
 
@@ -85,17 +94,18 @@ body {
     padding: 5px 7px;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #6AAB9A;
-    color: #fff;
+    background-color: #fff;
+    color: #FF3E7A;
     font-size: 1.1rem;
     transition: 0.1s linear;
 }
-.fas{
+
+.fas {
     vertical-align: 1px;
 }
 
 .regenerate:active {
-    background-color: rgb(61, 112, 98);
+    background-color: rgb(231, 231, 231);
 }
 
 
@@ -125,30 +135,32 @@ body {
 
 /* X버튼 눌렀을 시 비활성화 효과들*/
 
-.disabled{
+.disabled {
     filter: opacity(0.4);
 }
 
-.group_wrap.disabled .group li{
+.group_wrap.disabled .group li {
     filter: brightness(0);
     opacity: .1;
 }
+
 /* fancy_popup_text */
-.group_wrap.disabled .regenerate:active{
+.group_wrap.disabled .regenerate:active {
     background-color: #6AAB9A;
 }
 
 
 /* +버튼 */
-.disable_x .fas.fa-plus{
+.disable_x .fas.fa-plus {
     display: none;
 
-  /*   filter: opacity(1)!important;
+    /*   filter: opacity(1)!important;
     background-color: #6AAB9A; */
 }
-.disabled .disable_x{
-    filter: opacity(1)!important;
-    background-color: #6AAB9A!important;
+
+.disabled .disable_x {
+    filter: opacity(1) !important;
+    background-color: #6AAB9A !important;
 }
 
 
@@ -161,54 +173,75 @@ body {
 /* 게임번호 한 줄 */
 /* 게임번호 한 줄 */
 /* 게임번호 한 줄 */
+
+
 
 .group_wrap ul li {
     display: inline-block;
     margin-right: 5px;
-    box-shadow: 0px 0px 3px #02010a18;
-    font-size: 1.4rem;
-    /* padding: 8px 9px; */
-    width: 30px;
-    height: 25px;
+    font-size: 2rem;
+    width: 33px;
+    height: 33px;
     text-align: center;
-    margin-top: 10px;
-    border-radius: 10px;
-    background-color: #fff;
-    font-weight: 600;
-    color: #666;
-    line-height: 25px;
+    margin-top: 15px;
+    border-radius: 50px;
+    background-color: #646464;
+    font-weight: 700;
+    color: #fff;
+    line-height: 33px;
 
 }
 
+
+/* 
+.group_wrap ul li {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 2rem;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 50px;
+    background-color: #646464;
+    font-weight: 700;
+    color: #fff;
+    line-height: 33px;
+
+}
+ */
+
 .group_one_line {
     display: inline-block;
+    display: flex;
     width: 100%;
-    margin-top: 5px;
+    box-shadow: 0px 0px 3px #02010a18;
+    border-radius: 10px;
+    justify-content: space-between;
+
 }
 
 /* 한 줄 카피버튼 */
 .copy {
     float: right;
-    margin-top: 6px;
     display: inline-block;
     border-radius: 9px;
     border: none;
     cursor: pointer;
-    padding: 7px 15px;
-    font-size: 1.6rem;
-    font-weight: bolder;
-    text-transform: uppercase;
-    background-color: #888;
+    width: 75px;
+    font-size: 2.6rem;
+    background-color: #FF3E7A;
     color: #fff;
-    box-shadow: 0px 0px 3px #02010a6b;
     transition: 0.1s linear;
+    height: 64px;
 }
 
 .copy:active {
-    background-color: #000;
+    background-color: #cf0545;
     transition: 0.1s linear;
 }
-.group_wrap.disabled .copy:active{
+
+.group_wrap.disabled .copy:active {
     background-color: #888;
     transition: 0.1s linear;
 }
@@ -230,6 +263,9 @@ body {
     width: 100%;
     display: flex;
     align-content: space-between;
+    padding-top: 20px;
+    border-top: 5px dotted #b2b2b22d;
+
 }
 
 .regenerate-all button {
@@ -242,11 +278,12 @@ body {
     cursor: pointer;
     display: inline-block;
     height: 50px;
-    width: 100%;
+    /* width: 100%; */
+    flex: 3;
     font-size: 1.7rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #129d79;
+    background-color: #898989;
     color: #fff;
     margin-right: 10px;
     box-shadow: 0px 0px 3px #02010a6b;
@@ -254,7 +291,7 @@ body {
 }
 
 .regenerate-all:active {
-    background-color: #006349;
+    background-color: #333;
 }
 
 
@@ -265,18 +302,19 @@ body {
     cursor: pointer;
     display: inline-block;
     height: 50px;
-    width: 20%;
+    /* width: 20%; */
     font-size: 2.4rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #555;
+    background-color: #FF3E7A;
     color: #fff;
+    flex: 1;
     box-shadow: 0px 0px 3px #02010a6b;
     transition: 0.1s linear;
 }
 
 .copy-all:active {
-    background-color: #000;
+    background-color: #cf0545;
     transition: 0.1s linear;
 
 }
@@ -334,11 +372,31 @@ footer {
 
 }
 
-.footer_text.ver_etc {
-    font-size: .5rem;
-    margin-top: 7px;
-    color: #f7f7f7;
-    /* color: #333; */
+
+/* version History */
+.ver_history {
+    width: 90%;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.ver_history p {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+    line-height: 1.6rem;
+}
+
+.ver_history span {
+    font-size: 1rem;
+    color: #999;
+    text-align: left;
+    line-height: 1.5rem;
 }
 
 
@@ -451,12 +509,12 @@ footer {
     width: calc(100% - 20px);
     padding: 10px;
     font-weight: 500;
-    background-color: #129d79;
+    background-color: #FF80B4;
     transition: 0.1s linear;
 }
 
 .next_about:active {
-    background-color: #006349;
+    background-color: #cf0545;
 }
 
 
@@ -496,7 +554,7 @@ footer {
 
 
 /* 팝업안에 이미지 넣을 시 */
-.empty_num{
+.empty_num {
     margin: 0 auto;
     width: 100%;
     max-width: 180px;
@@ -505,13 +563,14 @@ footer {
     overflow: hidden;
     animation: animate .5s ease-in-out;
 }
+
 .empty_num img {
-   width: 100%;
-   height: 100%;
+    width: 100%;
+    height: 100%;
     /* filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.61)); */
 }
 
- @keyframes animate {
+@keyframes animate {
     0% {
         transform: scale(.5);
     }
@@ -520,7 +579,7 @@ footer {
     100% {
         transform: scale(1);
     }
-} 
+}
 
 
 
@@ -529,7 +588,10 @@ footer {
 
 
 /* Mo.ver */
-@media /* (min-width:296px) and  */(max-width:345px) {
+@media
+
+/* (min-width:296px) and  */
+(max-width:345px) {
 
     .popup_modalBox {
         position: absolute;
@@ -555,7 +617,7 @@ footer {
 @media (min-width: 768px) and (max-width: 1024px) {
 
     .all_wrap {
-      width: 365px;
+        width: 365px;
     }
 
 
@@ -573,5 +635,4 @@ footer {
     }
 
 
-  }
-  
+}
