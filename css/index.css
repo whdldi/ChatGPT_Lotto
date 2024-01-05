@@ -79,7 +79,7 @@ body {
 /* 그룹이름 */
 .group_title {
     font-size: 1.3rem;
-    color: #FF80B4;
+    color: #ff3387;
     font-weight: 600;
     display: inline-block;
 }
@@ -104,9 +104,6 @@ body {
     vertical-align: 1px;
 }
 
-.regenerate:active {
-    background-color: rgb(231, 231, 231);
-}
 
 
 
@@ -128,10 +125,10 @@ body {
     transition: 0.1s linear;
 }
 
-.disable_x:active {
+/* .disable_x:active {
     background-color: #333;
 }
-
+ */
 
 /* X버튼 눌렀을 시 비활성화 효과들*/
 
@@ -144,10 +141,7 @@ body {
     opacity: .1;
 }
 
-/* fancy_popup_text */
-.group_wrap.disabled .regenerate:active {
-    background-color: #6AAB9A;
-}
+
 
 
 /* +버튼 */
@@ -224,7 +218,6 @@ body {
 /* 한 줄 카피버튼 */
 .copy {
     float: right;
-    display: inline-block;
     border-radius: 9px;
     border: none;
     cursor: pointer;
@@ -236,15 +229,6 @@ body {
     height: 64px;
 }
 
-.copy:active {
-    background-color: #cf0545;
-    transition: 0.1s linear;
-}
-
-.group_wrap.disabled .copy:active {
-    background-color: #888;
-    transition: 0.1s linear;
-}
 
 
 
@@ -290,9 +274,6 @@ body {
     transition: 0.1s linear;
 }
 
-.regenerate-all:active {
-    background-color: #333;
-}
 
 
 
@@ -311,12 +292,6 @@ body {
     flex: 1;
     box-shadow: 0px 0px 3px #02010a6b;
     transition: 0.1s linear;
-}
-
-.copy-all:active {
-    background-color: #cf0545;
-    transition: 0.1s linear;
-
 }
 
 
@@ -509,14 +484,9 @@ footer {
     width: calc(100% - 20px);
     padding: 10px;
     font-weight: 500;
-    background-color: #FF80B4;
+    background-color: #ff3387;
     transition: 0.1s linear;
 }
-
-.next_about:active {
-    background-color: #cf0545;
-}
-
 
 
 

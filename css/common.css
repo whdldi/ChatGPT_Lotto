@@ -1,0 +1,338 @@
+/* 흑 필터 공통 */
+.bk_common_bg {
+     height: 100vh;
+     background-color: rgba(0, 0, 0, 0.4);
+     position: fixed;
+     z-index: 9999;
+     bottom: 0px;
+     width: 100%;
+}
+
+
+
+/* 공통 터치 리플 */
+
+.ripple {
+     position: relative;
+     border-radius: 8px;
+}
+
+.ripple:after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-position: center;
+     transition: background 0.5s;
+     border-radius: inherit;
+}
+
+.ripple:active:after {
+     background-color: #ffffff46;
+     background-size: 100%;
+     transition: background 0s;
+     z-index: 11;
+     /* 레이어를 뒤로 이동시켜 이미지 위에 나타나게 함 */
+}
+
+
+
+
+/* 로딩관련 */
+.loading_wrap_inner {
+     position: fixed;
+     top: 35%;
+     z-index: 100000;
+     width: 100%;
+     text-align: center;
+}
+
+.loading_wrap_inner img {
+     width: 80px;
+}
+
+/* 로딩할때 흑 필터 공통 (터치해도 안닫히는거) */
+.bk_common_bg_only_loading {
+     height: 100vh;
+     background-color: rgba(0, 0, 0, 0.4);
+     position: fixed;
+     z-index: 9999;
+     bottom: 0px;
+     width: 100%;
+}
+
+
+
+/*      
+ |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                                 바텀시트
+ |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+      \ (•◡•) / 
+ */
+
+
+
+/*      
+ |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+      푸터 공통 버튼 : 약관동의
+ |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+      \ (•◡•) / 
+ */
+
+.sheet_top_img {
+     /* background-color: #0080ff; */
+     width: 100%;
+     height: 100px;
+     position: relative;
+}
+
+/* gif별로 높이 bottom 조정 해야함 */
+.sheet_top_img img {
+     width: 133px;
+     position: absolute;
+     bottom: -10px;
+     left: 50%;
+     transform: translate(-50%, 0);
+}
+
+
+.sheet_top {
+     margin-bottom: 30px;
+}
+
+.bottom_sheet_wrap_inner {
+     position: fixed;
+     bottom: -100%;
+     left: 0;
+     border-radius: 15px 15px 0 0;
+     z-index: 100000;
+     width: 100%;
+     text-align: center;
+     background-color: #fff;
+     box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+     padding: 20px 0 20px 0;
+
+}
+
+.sheet_title {
+     font-size: 2.5rem;
+     color: #333;
+     font-weight: 800;
+     letter-spacing: -0.15rem;
+}
+
+/* 옵션들어가는 시트타이틀일때 글자 작게 함 */
+.sheet_title.opt_small {
+     font-size: 2rem;
+     color: #333;
+     font-weight: 800;
+}
+
+.opt_small span {
+     font-size: inherit;
+}
+
+
+.sheet_sub_title {
+     font-size: 1.2rem;
+     color: #a3a3a3;
+     margin-top: 5px;
+     font-weight: 400;
+}
+
+
+
+
+/* 혼자 놀 준비 완료 이미지 조정 */
+.alone_succ .calendar_chk_gif {
+     bottom: 11px !important;
+}
+
+.alone_succ .bottom_sheet_wrap_inner {
+     padding: 30px 0 20px 0;
+}
+
+
+
+.opt_wrap {
+     /* background-color: #0080ff; */
+     margin-bottom: 30px;
+}
+
+.opt_line {
+     width: 100%;
+     text-align: left;
+     margin-bottom: 20px;
+}
+
+
+
+/* 옵션제목 */
+.title_line {
+     font-size: 1.5rem;
+     font-weight: 500;
+     color: #a3a3a3;
+     margin-bottom: 10px;
+}
+
+.line_intext {
+     display: flex;
+     align-content: space-around;
+
+}
+
+.line_intext p {
+     background-color: #efefef;
+     height: 45px;
+     border-radius: 7px;
+}
+
+.line_intext_value {
+     flex: 1;
+     margin-right: 10px;
+     font-size: 1.5rem;
+     line-height: 45px;
+     padding-left: 10px;
+}
+
+/* 예약가능시간 표기 */
+.reserv_poss_time {
+     text-align: right;
+     margin-top: 10px;
+     font-size: 1.2rem;
+}
+
+.weekday_poss_time,
+.weekend_poss_time {
+     font-size: 1.2rem;
+}
+
+.weekday_poss_time {
+     margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*      
+ |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                   푸터버튼
+ |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+      \ (•◡•) / 
+ */
+
+/* 스크롤되는 페이지 하단 고정 푸터버튼+한줄텍스트가능
+ (시설상세 등) 일 경우 */
+.footer_fixed_com {
+     position: fixed;
+     bottom: 0;
+     width: calc(100% - 40px);
+     padding-top: 10px;
+     background-color: #fff;
+     box-shadow: 0px -15px 12px 0px #fff;
+     z-index: 999;
+}
+
+.footer_fixed_com .footer_btn {
+     margin-bottom: 20px;
+}
+
+
+
+
+
+
+.footer_btn_wrap {
+     width: 100%;
+     padding-top: 15px;
+}
+
+/* 한줄 글 */
+
+.one_text {
+     font-size: 1.2rem;
+     margin-bottom: 5px;
+     color: #b7b7b7;
+     font-weight: 600;
+     text-align: center;
+}
+
+.footer_btn {
+     width: 100%;
+     color: #fff;
+     text-align: center;
+     display: flex;
+     align-content: space-around;
+}
+
+.footer_btn a {
+     box-sizing: border-box;
+     color: #fff;
+     font-size: 2rem;
+     height: 50px;
+     line-height: 51px;
+     border-radius: 10px;
+     margin-right: 10px;
+     background-color: #a3a3a3;
+     font-weight: 600;
+}
+
+.footer_btn a:last-child {
+     margin-right: 0;
+}
+
+.footer_fir_close_btn {
+     flex: 3;
+}
+
+.footer_sec_btn {
+     flex: 7;
+}
+
+
+
+
+/*      
+ |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                   푸터버튼===========================
+ |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+      \ (•◡•) / 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*      
+ |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+     바텀시트====================================================
+ |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+      \ (•◡•) / 
+ */
