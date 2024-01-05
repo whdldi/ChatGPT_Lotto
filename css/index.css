@@ -179,7 +179,7 @@ body {
 .group_wrap ul li {
     display: inline-block;
     margin-right: 5px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 33px;
     height: 33px;
     text-align: center;
@@ -188,7 +188,7 @@ body {
     background-color: #646464;
     font-weight: 700;
     color: #fff;
-    line-height: 33px;
+    line-height: 30px;
 
 }
 
