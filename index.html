@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또챗또</title>
+    <title>로또톡톡</title>
     <link href="css/reset.css?cssVersion=22" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/common.css?cssVersion=22" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,25 +18,20 @@
     <!-- 팝업 -->
     <!-- 팝업 -->
     <!-- 팝업 -->
+
+    <!-- 이제 이 팝업 안쓰고 bottomsheets 씀 -->
     <div class="popup_modal">
         <div class="size_change">
             <div class="popup_modalBox">
                 <div class="popup_modalBox_inner">
                     <div class="how_to_text_wrap" id="how_to_text_1">
                         <div class="content">
-                            <!-- <div class="medal">
-                                <img src="/asset/win_popup.png" alt="medal">
-                            </div> -->
                             <div class="fancy_popup_text">
                                 <h1>복사완료😎</h1>
                                 <p>복사번호 들어갈 곳</p>
-                                <div class="empty_num" style="display:none;">
-                                    <img src="asset/잔상.png">
-                                </div>
-
                             </div>
                         </div>
-                        <button class="next_about" id="next_about3">1등당첨 ㄱㄱ</button>
+                        <button class="next_about ripple" id="close_btn">1등당첨 ㄱㄱ</button>
                     </div>
                 </div>
                 <!-- popup_modalBox_inner end -->
@@ -47,6 +43,52 @@
     <!-- 팝업 -->
     <!-- 팝업 -->
     <!-- 팝업 -->
+
+
+
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 공통 이미지도 들어갈시 (머머하기/완료)-->
+    <div class="sheet_wrap" style="display:none;">
+        <div class="bottom_sheet_wrap_inner">
+            <div class="footer_btn_wrap">
+                <div class="only_side_wrap">
+                    <div class="sheet_top_img">
+                        <img class="profile_plz_gif" src="/asset/n_asset_anicon/profile_plz.gif">
+                    </div>
+
+                    <div class="sheet_top">
+                        <p class="sheet_title">매칭확률 높이기</p>
+                        <p class="sheet_sub_title">내 사진, 닉네임 등 프로필 정보를 입력해야 매칭될 확률이 높아져요</p>
+                    </div>
+
+
+
+                    <!-- 푸터버튼 컴포넌트 -->
+                    <p class="one_text" style="display: none;">한 줄 설명</p>
+                    <div class="footer_btn close_or_accept">
+                        <a class="footer_fir_close_btn">취소</p>
+                            <a href="n_my_page.html" class="footer_sec_btn s_theme_bg ">프로필 입력하기</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 흑 필터 공통 : bk_common_bg(닫기버튼이 있다면, 닫기도) 를 누르면 근처에 있는 sheet_wrap 이 none되게함 
+     검은 필터를 누르면 가장 가까운 시트(팝업)으로 뜨는게 닫히도록 함
+     sheet_wrap 안에 '보여줄거' / 'bk_common_bg' 이런 식으로 구성.
+-->
+        <div class="bk_common_bg"></div>
+    </div>
+
+
+
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
 
     <div class="all_wrap">
         <!-- 오른쪽 빨간 로또 테두리선 -->
@@ -72,7 +114,7 @@
                   \ (•◡•) / 
         -->
 
-                    <button class="regenerate" data-group="groupA"><i class="fas fa-sync-alt"></i>
+                    <button class="regenerate ripple" data-group="groupA"><i class="fas fa-sync-alt"></i>
                     </button>
                     <!-- <button class="voice_read">번호읽기</button> -->
                     <!-- group_wrap 에 disabled가 있을시,
@@ -83,13 +125,14 @@
                     </button> -->
                     <div class="group_one_line">
                         <ul class="group" id="groupA"></ul>
-                        <button class="copy" data-group="groupA"><i class="fas fa-solid fa-clipboard"></i></button>
+                        <button class="copy ripple" data-group="groupA"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
                     </div>
 
                 </div>
                 <div class="group_wrap">
                     <p class="group_title">GAME B</p>
-                    <button class="regenerate" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
+                    <button class="regenerate ripple" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
                     <!-- <button class="voice_read">번호읽기</button> -->
                     <!-- <button class="disable_x">
                         <i class="fas fa-close"></i>
@@ -97,53 +140,58 @@
                     </button> -->
                     <div class="group_one_line">
                         <ul class="group" id="groupB"></ul>
-                        <button class="copy" data-group="groupB"><i class="fas fa-solid fa-clipboard"></i></button>
+                        <button class="copy ripple" data-group="groupB"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
                     </div>
                 </div>
 
                 <div class="group_wrap">
                     <p class="group_title">GAME C</p>
-                    <button class="regenerate" data-group="groupC"><i class="fas fa-sync-alt"></i></button>
+                    <button class="regenerate ripple" data-group="groupC"><i class="fas fa-sync-alt"></i></button>
                     <!-- <button class="disable_x">
                         <i class="fas fa-close"></i>
                         <i class="fas fa-plus"></i>
                     </button> -->
                     <div class="group_one_line">
                         <ul class="group" id="groupC"></ul>
-                        <button class="copy" data-group="groupC"><i class="fas fa-solid fa-clipboard"></i></button>
+                        <button class="copy ripple" data-group="groupC"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
                     </div>
                 </div>
 
                 <div class="group_wrap">
                     <p class="group_title">GAME D</p>
-                    <button class="regenerate" data-group="groupD"><i class="fas fa-sync-alt"></i></button>
+                    <button class="regenerate ripple" data-group="groupD"><i class="fas fa-sync-alt"></i></button>
                     <!-- <button class="disable_x">
                         <i class="fas fa-close"></i>
                         <i class="fas fa-plus"></i>
                     </button> -->
                     <div class="group_one_line">
                         <ul class="group" id="groupD"></ul>
-                        <button class="copy" data-group="groupD"><i class="fas fa-solid fa-clipboard"></i></button>
+                        <button class="copy ripple" data-group="groupD"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
                     </div>
                 </div>
 
                 <div class="group_wrap">
                     <p class="group_title">GAME E</p>
-                    <button class="regenerate" data-group="groupE"><i class="fas fa-sync-alt"></i></button>
+                    <button class="regenerate ripple" data-group="groupE"><i class="fas fa-sync-alt"></i></button>
                     <!-- <button class="disable_x">
                         <i class="fas fa-close"></i>
                         <i class="fas fa-plus"></i>
                     </button> -->
                     <div class="group_one_line">
                         <ul class="group" id="groupE"></ul>
-                        <button class="copy" data-group="groupE"><i class="fas fa-solid fa-clipboard"></i></button>
+                        <button class="copy ripple" data-group="groupE"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
                     </div>
                 </div>
 
                 <!-- buttons -->
                 <div class="bottom_btn_wrap">
-                    <button class="regenerate-all" id="regenerate-all"><i class="fas fa-sync-alt"></i> 다시뽑기</button>
-                    <button class="copy-all" id="copy-all"><i class="fas fa-solid fa-clipboard"></i> </button>
+                    <button class="regenerate-all ripple" id="regenerate-all"><i class="fas fa-sync-alt"></i>
+                        다시뽑기</button>
+                    <button class="copy-all ripple" id="copy-all"><i class="fas fa-solid fa-clipboard"></i> </button>
                 </div>
 
             </div>
@@ -157,7 +205,7 @@
         <p class="footer_text" id="update_show">Hesper 가 만든 로또추첨기</p>
         <p class="footer_text ver">Ver 1.7<span> 23-01-01</span></p>
         <div class="ver_history">
-            <p class="footer_text">Ver 1.7 - 로또톡톡으로 변경 (코드만)(음성리딩 개발중)<span> 24-01-01</span></p>
+            <p class="footer_text">Ver 1.7 - 로또톡톡으로 변경 (코드만)(음성리딩 개발중)+번호별색변경,당첨된 번호 크롤링개발중<span> 24-01-01/05</span></p>
             <p class="footer_text">Ver 1.6 - 스토어에 chat gpt 등재로 앱내려가서 2개월만에 다시올림, PC에서 모바일로보이게 사이즈 수정<span>
                     23-11-26</span></p>
             <p class="footer_text">Ver 1.5 - 앱 아이콘, 이름, AEO 수정<span> 23-06-17</span></p>
@@ -204,10 +252,43 @@
 
             let numbers = generateRandomNumbers(6);
 
+            // $.each(numbers, function (index, value) {
+            //     list.append("<li>" + value + "</li>");
+            // });
+
+            //  각 번호마다 색깔지정
             $.each(numbers, function (index, value) {
-                list.append("<li>" + value + "</li>");
+                // li 요소 생성
+                let listItem = $("<li>" + value + "</li>");
+
+                // value에 따라 백그라운드 색 설정
+                if (value >= 1 && value <= 10) {
+                    listItem.css("background-color", "#FF9700");
+                } else if (value >= 11 && value <= 20) {
+                    listItem.css("background-color", "#0063F2");
+                } else if (value >= 21 && value <= 30) {
+                    listItem.css("background-color", "#FF2400");
+                } else if (value >= 31 && value <= 40) {
+                    listItem.css("background-color", "#777777");
+                } else if (value >= 41 && value <= 50) {
+                    listItem.css("background-color", "#8D00E8");
+                }
+
+                // 생성한 li 요소를 리스트에 추가
+                list.append(listItem);
             });
+
         }
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        disabled 효과 (지금은 안씀)
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
 
         $(document).ready(function () {
             $(".group").each(function () {
@@ -238,7 +319,7 @@
 
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-        //        복사/전체복사 버튼
+        //        복사/전체복사 버튼 < 이부분 바텀시트 맞게수정
         // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
         //      \ (•◡•) /
         $(".copy").click(function () {
@@ -296,11 +377,13 @@
 
 
             // 복사할 로또번호가 없/있을시 아래처럼 나타냄
+            // 복사할 로또번호가 없는 경우가 없게 바뀌었으므로 if첫번째문장 (disable을 다 없앰)주석검
+
             if (allNumbers.trim() === "") {
-                $('.fancy_popup_text p').text("아아,그건 제 잔상입니다만?");
-                $('.fancy_popup_text h1').text("뭘 복사하라는거죠?🙄");
-                $('.next_about').text("호에에;");
-                $('.empty_num').show();
+                /*  $('.fancy_popup_text p').text("아아,그건 제 잔상입니다만?");
+                 $('.fancy_popup_text h1').text("뭘 복사하라는거죠?🙄");
+                 $('.next_about').text("호에에;");
+                 $('.empty_num').show(); */
             } else {
                 $('.fancy_popup_text p').text(allNumbers);
                 $('.fancy_popup_text h1').text(fancy_popup_text_title);
@@ -312,6 +395,59 @@
         // 원래의 제목,버튼 text저장
         let fancy_popup_text_title = $('.fancy_popup_text h1').text();
         let fancy_popup_next_about = $('.next_about').text();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* =================================닫기================================= */
+        /* =================================닫기================================= */
+        /* =================================닫기================================= */
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       흑필터 공통닫기
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".bk_common_bg").on("click", function () {
+                $(this).closest(".sheet_wrap").hide();
+                /* 일반 바텀시트 */
+                $('.bottom_sheet_wrap_inner').css('bottom', '-100%');
+                /* 스포츠 종목처럼 탑시트 */
+                // $('.sports_kind_wrap_inner').css('top', '-100%');
+            });
+        });
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //      닫기버튼 공통 닫기
+        //      sheet_close_btn (닫기 ) 누르면 가장가까운
+        //      sheet_wrap 닫힘 (sheet_close_btn 가 sheet_wrap
+        //      안에 들어있어서 하나만 닫힘)
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".sheet_close_btn").on("click", function () {
+                $(this).closest(".sheet_wrap").hide();
+                /* 일반 바텀시트 */
+                $('.bottom_sheet_wrap_inner').css('bottom', '-100%');
+                /* 스포츠 종목처럼 탑시트 */
+                // $('.sports_kind_wrap_inner').css('top', '-100%');
+
+            });
+        });
+
 
 
 
@@ -352,7 +488,7 @@
 
         // 팝업닫는 글자
         $(function () {
-            $("#next_about3").click(function () {
+            $("#close_btn").click(function () {
                 $(".popup_modal").fadeOut('1');
                 // $(".how_to_text_wrap").fadeOut('1');
             });
@@ -389,7 +525,7 @@
 
 
 
-        
+
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
         //      version history 보는 부분
@@ -437,6 +573,96 @@
                 synth.speak(utterance);
             }
         });
+
+
+
+        /* 
+        https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
+
+        이렇게 주소가 있는데 
+        drwNo=를 한국서울 시 기준으로 매주 토요일 8시 36분이 되면 1씩 더해줄수있어?
+        */
+
+
+//     $(document).ready(function () {
+//     $.get("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100", function (data) {
+//         var result = $(data);
+
+//         var lottoNumbers = result.find(body).map(function () {
+//             return $(this).text();
+//         }).get();
+
+//         $('.big_title').text( lottoNumbers.join(", "));
+//     });
+
+// });
+
+
+
+const express = require('express');
+const axios = require('axios');
+const app = express();
+const port = 3000;
+
+app.get('/getLottoData', async (req, res) => {
+  try {
+    const response = await axios.get('https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100');
+    const lottoData = response.data;
+    res.json({ drwtNo1: lottoData.drwtNo1 });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+$(document).ready(function () {
+    $.get("http://localhost:3000/getLottoData", function (data) {
+        $('.big_title').text("LOTTO TALKTALK - " + data.drwtNo1);
+    });
+});
+
+
+
+
+/* 
+다시 해보자
+https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
+이 사이트에 있는 body 요소 내의 text를
+내 html 의 .big_title 요소로 대체하고 싶어 
+제이쿼리 코드줘
+
+
+*/
+
+
+
+
+// $(document).ready(function () {
+//     // HTML 텍스트에서 drwtNo1": 다음에 오는 숫자 추출
+//     var htmlText = " https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100"; // 실제 HTML 텍스트를 여기에 넣어주세요
+//     var regex = /drwtNo1":\s*(\d+)/;
+//     var match = htmlText.match(regex);
+
+//     if (match) {
+//         var drwtNo1 = match[1];
+//         $('.big_title').text("LOTTO " + drwtNo1);
+//     } else {
+//         console.error("해당 패턴을 찾을 수 없습니다.");
+//     }
+// });
+
+
+
+/* 아니면 그냥 이 html 상에 나타난 글자들 중에
+drwtNo1": 다음으로 오는 가장 가까운 숫자만 잘라서 
+ $('.big_title').text( lottoNumbers.join(", ")); 여기에 조인시키는 코드로 바꿔줘
+ */
+
+
     </script>
 
 
