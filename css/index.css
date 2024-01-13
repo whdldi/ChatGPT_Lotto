@@ -38,7 +38,7 @@ body {
     font-weight: 800;
     text-align: center;
     font-size: 3rem;
-    color: #FFCFE5;
+    color: #ff57a4;
     height: 60px;
     border-bottom: 5px dotted #b2b2b22d;
 
@@ -267,7 +267,7 @@ body {
     font-size: 1.7rem;
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: #898989;
+    background-color: #666;
     color: #fff;
     margin-right: 10px;
     box-shadow: 0px 0px 3px #02010a6b;
@@ -513,13 +513,22 @@ footer {
     margin-bottom: 15px;
 }
 
-.content .fancy_popup_text p {
+.fancy_popup_text p {
     font-size: 1.5rem;
     color: #555;
     text-align: center;
     line-height: 28px;
     white-space: pre;
     margin-bottom: 10px;
+}
+
+p.sheet_subtitle  {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    line-height: 28px;
+    white-space: pre;
+    margin-bottom: 40px;
 }
 
 
