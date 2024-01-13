@@ -20,7 +20,7 @@
     <!-- 팝업 -->
 
     <!-- 이제 이 팝업 안쓰고 bottomsheets 씀 -->
-    <div class="popup_modal">
+    <!-- <div class="popup_modal">
         <div class="size_change">
             <div class="popup_modalBox">
                 <div class="popup_modalBox_inner">
@@ -34,11 +34,9 @@
                         <button class="next_about ripple" id="close_btn">1등당첨 ㄱㄱ</button>
                     </div>
                 </div>
-                <!-- popup_modalBox_inner end -->
-                <!-- <button class="close_about" id="close"><i class="fas fa-times"></i></button> -->
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- 팝업 -->
     <!-- 팝업 -->
@@ -50,26 +48,26 @@
     <!-- 바텀시트 -->
     <!-- 바텀시트 -->
     <!-- 바텀시트 공통 이미지도 들어갈시 (머머하기/완료)-->
-    <div class="sheet_wrap" style="display:none;">
-        <div class="bottom_sheet_wrap_inner">
+    <div class="sheet_wrap popup_modal" style="display:none;">
+        <div class="bottom_sheet_wrap_inner" style="bottom: -100%;">
             <div class="footer_btn_wrap">
                 <div class="only_side_wrap">
                     <div class="sheet_top_img">
-                        <img class="profile_plz_gif" src="/asset/n_asset_anicon/profile_plz.gif">
+                        <img class="profile_plz_gif" src="/asset/ani_icon_3d_copy.gif">
                     </div>
-
                     <div class="sheet_top">
-                        <p class="sheet_title">매칭확률 높이기</p>
-                        <p class="sheet_sub_title">내 사진, 닉네임 등 프로필 정보를 입력해야 매칭될 확률이 높아져요</p>
+                        <p class="sheet_title">복사완료!</p>
+                        <p class="sheet_subtitle">원하는 곳에 붙혀 넣어보세요 🥰</p>
+                        <div class="fancy_popup_text">
+                            <!-- <p>복사번호 들어갈 곳,인데 지금안씀_살리면 복사된 번호 표기됨ㅇ</p> -->
+                        </div>
+                        <!-- <p class="sheet_sub_title">내 사진, 닉네임 등 프로필 정보를 입력해야 매칭될 확률이 높아져요</p> -->
                     </div>
-
-
-
                     <!-- 푸터버튼 컴포넌트 -->
                     <p class="one_text" style="display: none;">한 줄 설명</p>
-                    <div class="footer_btn close_or_accept">
-                        <a class="footer_fir_close_btn">취소</p>
-                            <a href="n_my_page.html" class="footer_sec_btn s_theme_bg ">프로필 입력하기</a>
+                    <div class="footer_btn close_or_accept ripple">
+                        <!-- <a class="footer_fir_close_btn">취소</p> -->
+                        <a class="footer_sec_btn main_btn_bg ">1등 가보자고~😎</a>
                     </div>
 
                 </div>
@@ -203,8 +201,9 @@
     </div>
     <footer>
         <p class="footer_text" id="update_show">Hesper 가 만든 로또추첨기</p>
-        <p class="footer_text ver">Ver 1.7<span> 23-01-01</span></p>
+        <p class="footer_text ver">Ver 1.8<span> 23-01-13</span></p>
         <div class="ver_history">
+            <p class="footer_text">Ver 1.8 - 팝업X 바텀시트로 변경(요즘 st.) 아이콘도 3D로 변경<span> 24-01-13</span></p>
             <p class="footer_text">Ver 1.7 - 로또톡톡으로 변경 (코드만)(음성리딩 개발중)+번호별색변경,당첨된 번호 크롤링개발중<span> 24-01-01/05</span></p>
             <p class="footer_text">Ver 1.6 - 스토어에 chat gpt 등재로 앱내려가서 2개월만에 다시올림, PC에서 모바일로보이게 사이즈 수정<span>
                     23-11-26</span></p>
@@ -285,21 +284,27 @@
 
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-        //        disabled 효과 (지금은 안씀)
+        //        번호 생성/재생성 관련 (+disabled < 안씀)
         // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
         //      \ (•◡•) /
 
 
         $(document).ready(function () {
+
             $(".group").each(function () {
                 generateNumbers($(this).attr("id"));
             });
             /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
+
+
             $(".regenerate").click(function () {
                 var groupWrap = $(this).closest(".group_wrap");
-                if (groupWrap.hasClass("disabled")) {
-                    return; // .disabled 클래스가 있는 경우 동작 중지
-                }
+
+                //disabled 클래스 안쓰기로함
+                // if (groupWrap.hasClass("disabled")) {
+                //     return; 
+                //     // .disabled 클래스가 있는 경우 동작 중지
+                // }
                 let group = $(this).data("group");
                 generateNumbers(group);
             });
@@ -307,15 +312,58 @@
             $("#regenerate-all").click(function () {
                 $(".group").each(function () {
                     var groupWrap = $(this).closest(".group_wrap");
-                    if (groupWrap.hasClass("disabled")) {
-                        return; // .disabled 클래스가 있는 경우 동작 중지
-                    }
+                    //disabled 클래스 안쓰기로함
+                    // if (groupWrap.hasClass("disabled")) {
+                    //     return; 
+                    //     // .disabled 클래스가 있는 경우 동작 중지
+                    // }
 
                     let group = $(this).attr("id");
                     generateNumbers(group);
                 });
             });
         });
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        복사/전체복사 버튼 눌렀을때
+        //        바텀시트 띄우기
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        /* 단순히 팝업만뜸 */
+        /*         $(document).ready(function () {
+                    $(".copy, .copy-all").on("click", function () {
+                        $(".sheet_wrap").show(0);
+                        $(".bottom_sheet_wrap_inner").animate({
+                            bottom: "0"
+                        }, 200);
+                    });
+                }); */
+
+        /* 이미지 새로고침 해줘서 매번 gif 실행되게함 */
+        $(document).ready(function () {
+            $(".copy, .copy-all").on("click", function () {
+                $(".sheet_wrap").show(0);
+                $(".bottom_sheet_wrap_inner").animate({
+                    bottom: "0"
+                }, 200);
+
+                refreshImages();
+            });
+
+            function refreshImages() {
+
+                $('.bottom_sheet_wrap_inner img').each(function () {
+                    var originalSrc = $(this).attr('src');
+                    $(this).attr('src', originalSrc + '?' + new Date().getTime());
+                });
+            }
+        });
+
+
 
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
@@ -352,9 +400,10 @@
             $(".group").each(function () {
                 let groupWrap = $(this).closest(".group_wrap");
 
-                if (groupWrap.hasClass("disabled")) {
-                    return; // .disabled 클래스가 있는 경우 건너뜀
-                }
+                /* disabled 클래스 없앰 */
+                // if (groupWrap.hasClass("disabled")) {
+                //     return; // .disabled 클래스가 있는 경우 건너뜀
+                // }
 
                 let groupName = $(this).parents("div").siblings(".group_title").text();
                 let numbers = $(this).find("li").map(function () {
@@ -430,15 +479,14 @@
         });
 
         // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-        //      닫기버튼 공통 닫기
-        //      sheet_close_btn (닫기 ) 누르면 가장가까운
-        //      sheet_wrap 닫힘 (sheet_close_btn 가 sheet_wrap
-        //      안에 들어있어서 하나만 닫힘)
+        //      버튼 공통 닫기
+        //      푸터 버튼 아무거나 눌러도 다 닫히게 해놓음
+        //      아직 버튼의 다른 기능이 없으므로.
         // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
         //      \ (•◡•) /
 
         $(document).ready(function () {
-            $(".sheet_close_btn").on("click", function () {
+            $(".footer_btn").on("click", function () {
                 $(this).closest(".sheet_wrap").hide();
                 /* 일반 바텀시트 */
                 $('.bottom_sheet_wrap_inner').css('bottom', '-100%');
@@ -455,72 +503,76 @@
 
 
 
+
+
         /* 팝업모달 */
         /* 팝업모달 */
         /* 팝업모달 */
 
-        // about 모달
+        // about 모달 (안쓰게 수정해야함)
 
-        $(function () {
-            /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
-            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
-            $(".copy, .copy-all").click(function () {
-                var groupWrap = $(this).closest(".group_wrap");
-                if (groupWrap.hasClass("disabled")) {
-                    return; // .disabled 클래스가 있는 경우 동작 중지
-                }
+        // $(function () {
+        //     /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
+        //     /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
 
-                $(".popup_modal").fadeIn('1');
-            });
+        //     $(".copy, .copy-all").click(function () {
+        //         var groupWrap = $(this).closest(".group_wrap");
+        //         if (groupWrap.hasClass("disabled")) {
+        //             return; 
+        //             // .disabled 클래스가 있는 경우 동작 중지
+        //         }
 
-
-            $(".popup_modal").click(function (e) {
-                if (e.target.className == "popup_modal") {
-                    $(".popup_modal").fadeOut('1');
-                }
-                if (e.target.className == "size_change") {
-                    $(".popup_modal").fadeOut('1');
-                }
-            });
-
-        });
+        //         $(".popup_modal").fadeIn('1');
+        //     });
 
 
-        // 팝업닫는 글자
-        $(function () {
-            $("#close_btn").click(function () {
-                $(".popup_modal").fadeOut('1');
-                // $(".how_to_text_wrap").fadeOut('1');
-            });
-        });
+        //     $(".popup_modal").click(function (e) {
+        //         if (e.target.className == "popup_modal") {
+        //             $(".popup_modal").fadeOut('1');
+        //         }
+        //         if (e.target.className == "size_change") {
+        //             $(".popup_modal").fadeOut('1');
+        //         }
+        //     });
+
+        // });
+
+
+        // // 팝업닫는 글자(안쓰게 수정해야함)
+        // $(function () {
+        //     $("#close_btn").click(function () {
+        //         $(".popup_modal").fadeOut('1');
+        //         // $(".how_to_text_wrap").fadeOut('1');
+        //     });
+        // });
 
 
 
 
 
 
-        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
         //       0518 X 버튼(게임 비활성화) 기능 (안씀)
-        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
         //      \ (•◡•) /
 
-        $(document).ready(function () {
-            $(".disable_x").click(function () {
-                var groupWrap = $(this).closest(".group_wrap");
+        // $(document).ready(function () {
+        //     $(".disable_x").click(function () {
+        //         var groupWrap = $(this).closest(".group_wrap");
 
-                if (groupWrap.hasClass("disabled")) {
-                    // 비활성화 상태인 경우
-                    groupWrap.removeClass("disabled");
-                    $(this).find('.fas.fa-plus').hide();
-                    $(this).find('.fas.fa-close').show();
-                } else {
-                    // 활성화 상태인 경우
-                    groupWrap.addClass("disabled");
-                    $(this).find('.fas.fa-close').hide();
-                    $(this).find('.fas.fa-plus').show();
-                }
-            });
-        });
+        //         if (groupWrap.hasClass("disabled")) {
+        //             // 비활성화 상태인 경우
+        //             groupWrap.removeClass("disabled");
+        //             $(this).find('.fas.fa-plus').hide();
+        //             $(this).find('.fas.fa-close').show();
+        //         } else {
+        //             // 활성화 상태인 경우
+        //             groupWrap.addClass("disabled");
+        //             $(this).find('.fas.fa-close').hide();
+        //             $(this).find('.fas.fa-plus').show();
+        //         }
+        //     });
+        // });
 
 
 
@@ -576,6 +628,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /* 
         https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
 
@@ -584,85 +658,88 @@
         */
 
 
-//     $(document).ready(function () {
-//     $.get("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100", function (data) {
-//         var result = $(data);
+        //     $(document).ready(function () {
+        //     $.get("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100", function (data) {
+        //         var result = $(data);
 
-//         var lottoNumbers = result.find(body).map(function () {
-//             return $(this).text();
-//         }).get();
+        //         var lottoNumbers = result.find(body).map(function () {
+        //             return $(this).text();
+        //         }).get();
 
-//         $('.big_title').text( lottoNumbers.join(", "));
-//     });
+        //         $('.big_title').text( lottoNumbers.join(", "));
+        //     });
 
-// });
-
-
-
-const express = require('express');
-const axios = require('axios');
-const app = express();
-const port = 3000;
-
-app.get('/getLottoData', async (req, res) => {
-  try {
-    const response = await axios.get('https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100');
-    const lottoData = response.data;
-    res.json({ drwtNo1: lottoData.drwtNo1 });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-$(document).ready(function () {
-    $.get("http://localhost:3000/getLottoData", function (data) {
-        $('.big_title').text("LOTTO TALKTALK - " + data.drwtNo1);
-    });
-});
+        // });
 
 
 
+        const express = require('express');
+        const axios = require('axios');
+        const app = express();
+        const port = 3000;
 
-/* 
-다시 해보자
-https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
-이 사이트에 있는 body 요소 내의 text를
-내 html 의 .big_title 요소로 대체하고 싶어 
-제이쿼리 코드줘
+        app.get('/getLottoData', async (req, res) => {
+            try {
+                const response = await axios.get(
+                    'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100');
+                const lottoData = response.data;
+                res.json({
+                    drwtNo1: lottoData.drwtNo1
+                });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({
+                    error: 'Internal Server Error'
+                });
+            }
+        });
 
+        app.listen(port, () => {
+            console.log(`Server is running on http://localhost:${port}`);
+        });
 
-*/
+        $(document).ready(function () {
+            $.get("http://localhost:3000/getLottoData", function (data) {
+                $('.big_title').text("LOTTO TALKTALK - " + data.drwtNo1);
+            });
+        });
 
 
 
 
-// $(document).ready(function () {
-//     // HTML 텍스트에서 drwtNo1": 다음에 오는 숫자 추출
-//     var htmlText = " https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100"; // 실제 HTML 텍스트를 여기에 넣어주세요
-//     var regex = /drwtNo1":\s*(\d+)/;
-//     var match = htmlText.match(regex);
+        /* 
+        다시 해보자
+        https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
+        이 사이트에 있는 body 요소 내의 text를
+        내 html 의 .big_title 요소로 대체하고 싶어 
+        제이쿼리 코드줘
 
-//     if (match) {
-//         var drwtNo1 = match[1];
-//         $('.big_title').text("LOTTO " + drwtNo1);
-//     } else {
-//         console.error("해당 패턴을 찾을 수 없습니다.");
-//     }
-// });
+
+        */
 
 
 
-/* 아니면 그냥 이 html 상에 나타난 글자들 중에
-drwtNo1": 다음으로 오는 가장 가까운 숫자만 잘라서 
- $('.big_title').text( lottoNumbers.join(", ")); 여기에 조인시키는 코드로 바꿔줘
- */
+
+        // $(document).ready(function () {
+        //     // HTML 텍스트에서 drwtNo1": 다음에 오는 숫자 추출
+        //     var htmlText = " https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100"; // 실제 HTML 텍스트를 여기에 넣어주세요
+        //     var regex = /drwtNo1":\s*(\d+)/;
+        //     var match = htmlText.match(regex);
+
+        //     if (match) {
+        //         var drwtNo1 = match[1];
+        //         $('.big_title').text("LOTTO " + drwtNo1);
+        //     } else {
+        //         console.error("해당 패턴을 찾을 수 없습니다.");
+        //     }
+        // });
 
 
+
+        /* 아니면 그냥 이 html 상에 나타난 글자들 중에
+        drwtNo1": 다음으로 오는 가장 가까운 숫자만 잘라서 
+         $('.big_title').text( lottoNumbers.join(", ")); 여기에 조인시키는 코드로 바꿔줘
+         */
     </script>
 
 
@@ -683,7 +760,8 @@ drwtNo1": 다음으로 오는 가장 가까운 숫자만 잘라서
     
     -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
     (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
-    
+    - [로또당첨 확인하고 싶은 번호 저장하고 알림받기] 같은 버튼 만들어서
+    당첨된 번호 크롤링해서 몇등했는지 비교해서 알림보내주기 (이거하려면 서버필요요)
     
     
     
