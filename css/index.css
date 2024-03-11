@@ -32,8 +32,9 @@ body {
     /* box-shadow: 0px 0px 7px #02010a67; */
 }
 
+/* 240311 - 제목을 이미지로 써서 주석 */
 /* 추첨기제목 */
-.big_title {
+/* .big_title {
     line-height: 60px;
     font-weight: 800;
     text-align: center;
@@ -41,9 +42,20 @@ body {
     color: #ff57a4;
     height: 60px;
     border-bottom: 5px dotted #b2b2b22d;
+} */
 
-
+/* 헤더 로고 */
+.big_tit_logo {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    text-align: center;
 }
+.big_tit_logo img {
+    width:200px;
+}
+
 
 
 /* 추첨기 그룹 */
